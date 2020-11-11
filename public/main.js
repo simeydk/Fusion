@@ -14,7 +14,7 @@ function createWindow() {
         opacity: 0.95,
         icon: path.join(__dirname, "../icons/Fusion.ico"),
         webPreferences: {
-            devTools: true,
+            devTools: false,
             nodeIntegration: true,
         }
     });
