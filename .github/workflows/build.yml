@@ -16,9 +16,9 @@ jobs:
         node-version: [14.x]
 
     steps:
-    - uses: actions/checkout@main
+    - uses: actions/checkout@v2
     - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@main
+      uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
     - name: Install dependencies
@@ -30,7 +30,7 @@ jobs:
     - name: Make app
       run: npm run make
     - name: Archive built app
-      uses: actions/upload-artifact@main
+      uses: actions/upload-artifact@v2
       with:
         name: Save exe file
         path: out/make/squirrel.windows/x64/*.exe
@@ -44,9 +44,9 @@ jobs:
         node-version: [14.x]
 
     steps:
-    - uses: actions/checkout@main
+    - uses: actions/checkout@v2
     - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@main
+      uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
     - name: Install dependencies
@@ -58,7 +58,7 @@ jobs:
     - name: Make app
       run: npm run make
     - name: Archive built app
-      uses: actions/upload-artifact@main
+      uses: actions/upload-artifact@v2
       with:
         name: Save zip file
         path: out/make/zip/darwin/x64/*.zip
