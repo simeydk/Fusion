@@ -1,7 +1,10 @@
 {
   "name": "fusion",
   "description": "The PDF app.",
-  "author": "Ratul Maharaj",
+  "author": {
+    "name": "Ratul Maharaj",
+    "email": "ratulmaharaj@gmail.com"
+  },
   "version": "0.1.0",
   "main": "public/main.js",
   "homepage": "./",
