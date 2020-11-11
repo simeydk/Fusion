@@ -5,7 +5,7 @@
     "name": "Ratul Maharaj",
     "email": "ratulmaharaj@gmail.com"
   },
-  "version": "0.1.0",
+  "version": "0.1.1",
   "main": "public/main.js",
   "homepage": "./",
   "private": true,
@@ -74,9 +74,10 @@
   "config": {
     "forge": {
       "packagerConfig": {
+        "name": "Fusion",
         "asar": true,
         "icon": "./icons/Fusion",
-        "all": true
+        "platform": "all"
       },
       "publishers": [
         {

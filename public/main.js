@@ -12,7 +12,7 @@ function createWindow() {
         transparent: true,
         resizable: false,
         opacity: 0.95,
-        icon: path.join(__dirname, "../Fusion.ico"),
+        icon: path.join(__dirname, "../icons/Fusion.ico"),
         webPreferences: {
             devTools: false,
             nodeIntegration: true,
