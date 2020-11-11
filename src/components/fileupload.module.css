@@ -1,9 +1,9 @@
 .wrapper {
     height: 300px;
     width: 60%;
-    background-color: var(--white-lo);
+    background-color: var(--light-lo);
     border-radius: 3px;
-    color: #000;
+    color: var(--white);
 }
 
 .wrapper>input:focus {
