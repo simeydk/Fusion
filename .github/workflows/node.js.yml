@@ -29,3 +29,8 @@ jobs:
       run: npm run rebuild-win
     - name: Make app
       run: npm run make
+    - name: Archive built app
+      uses: actions/upload-artifact@main
+      with:
+        name: Save Setup File
+        path: out/make/squirrel.windows/x64/*.exe
