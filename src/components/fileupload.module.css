@@ -1,0 +1,11 @@
+.wrapper {
+    height: 300px;
+    width: 60%;
+    background-color: var(--white-lo);
+    border-radius: 3px;
+    color: #000;
+}
+
+.wrapper>input:focus {
+    outline: none !important;
+}

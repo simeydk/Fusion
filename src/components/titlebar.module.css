@@ -1,0 +1,33 @@
+.titleBar {
+    -webkit-user-select: none;
+    -webkit-app-region: drag;
+    height: 1.5rem;
+    width: 100%;
+    background-color: var(--dark) !important;
+    padding: 0.125rem 0;
+    margin: 0;
+    flex-direction: row;
+}
+
+.title {
+    width: calc(100% - 100px);
+    padding-left: calc(100px / 2);
+}
+
+.btns {
+    width: 100px;
+    -webkit-app-region: no-drag;
+    flex-direction: row;
+}
+
+.btns div {
+    border: 0px solid transparent;
+    margin: 0 5px;
+    padding: 0.3rem;
+    background-color: var(--dark);
+    border-radius: 3px;
+}
+
+.btns div:hover {
+    background-color: var(--dark-lo) !important;
+}
