@@ -75,7 +75,8 @@
     "forge": {
       "packagerConfig": {
         "asar": true,
-        "icon": "./Fusion.ico"
+        "icon": "./icons/Fusion",
+        "all": true
       },
       "publishers": [
         {
@@ -93,7 +94,7 @@
           "name": "@electron-forge/maker-squirrel",
           "config": {
             "name": "Fusion",
-            "setupIcon": "./Fusion.ico"
+            "setupIcon": "./icons/Fusion.ico"
           }
         },
         {

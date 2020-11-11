@@ -1,4 +1,4 @@
-name: Node.js CI
+name: Build CI
 
 on:
   push:
@@ -34,3 +34,31 @@ jobs:
       with:
         name: Save Setup File
         path: out/make/squirrel.windows/x64/*.exe
+  
+  build_on_mac:
+
+    runs-on: macos-latest
+
+    strategy:
+      matrix:
+        node-version: [14.x]
+
+    steps:
+    - uses: actions/checkout@main
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@main
+      with:
+        node-version: ${{ matrix.node-version }}
+    - name: Install dependencies
+      run: npm install
+    - name: Install rebuild
+      run: npm install electron-rebuild
+    - name: Rebuild native modules
+      run: npm run rebuild-mac
+    - name: Make app
+      run: npm run make
+    - name: Archive built app
+      uses: actions/upload-artifact@main
+      with:
+        name: Save Setup File
+        path: out/make/zip/darwin/x64/*.zip
