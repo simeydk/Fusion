@@ -79,6 +79,7 @@ ipcMain.on("merge", (evt, arg) => {
     const { dialog } = require('electron')
     var path = dialog.showSaveDialogSync({
         title: `Save combined file as:`,
+        defaultPath: `Merged.pdf`,
         buttonLabel: `Save`,
         filters: [{
             name: `pdf`,
@@ -88,13 +89,16 @@ ipcMain.on("merge", (evt, arg) => {
         message: `Save as:`,
         properties: [`openFile`]
     })
-    if (path) {
+    if (path !== undefined) {
         merge(arg, path, function (err) {
             if (err) {
                 return console.log(err)
             }
             console.log('Success')
         });
+    }
+    else {
+        BrowserWindow.getFocusedWindow().reload()
     }
 });
 
