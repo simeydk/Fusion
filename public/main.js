@@ -95,6 +95,7 @@ ipcMain.on("merge", (evt, arg) => {
                 return console.log(err)
             }
             console.log('Success')
+            BrowserWindow.getFocusedWindow().reload()
         });
     }
     else {

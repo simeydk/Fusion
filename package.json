@@ -5,7 +5,7 @@
     "name": "Ratul Maharaj",
     "email": "ratulmaharaj@gmail.com"
   },
-  "version": "0.1.1",
+  "version": "0.1.2",
   "main": "public/main.js",
   "homepage": "./",
   "private": true,
