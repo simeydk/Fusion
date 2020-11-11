@@ -23,7 +23,7 @@ jobs:
         node-version: ${{ matrix.node-version }}
     - name: Install dependencies
       run: npm install
-    - name: Install rebuild
+    - name: Install rebuild module
       run: npm install electron-rebuild
     - name: Rebuild native modules
       run: npm run rebuild-win
@@ -51,7 +51,7 @@ jobs:
         node-version: ${{ matrix.node-version }}
     - name: Install dependencies
       run: npm install
-    - name: Install rebuild
+    - name: Install rebuild module
       run: npm install electron-rebuild
     - name: Rebuild native modules
       run: npm run rebuild-mac
