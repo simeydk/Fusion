@@ -1,6 +1,7 @@
 const path = require("path");
 const { app, BrowserWindow } = require("electron");
 const isDev = require("electron-is-dev");
+const { merge } = require("./merge");
 
 function createWindow() {
     // Create the browser window.
@@ -73,8 +74,8 @@ ipcMain.on("minimize-window", (evt, arg) => {
     BrowserWindow.getFocusedWindow().minimize();
 });
 
-const merge = require('easy-pdf-merge');
-ipcMain.on("merge", (evt, arg) => {
+
+ipcMain.on("merge", async (evt, arg) => {
     const { dialog } = require('electron')
     var path = dialog.showSaveDialogSync({
         title: `Save combined file as:`,
@@ -88,17 +89,15 @@ ipcMain.on("merge", (evt, arg) => {
         message: `Save as:`,
         properties: [`openFile`]
     })
+    console.log({ arg, path })
+
     if (path !== undefined) {
-        merge(arg, path, function (err) {
-            if (err) {
-                return console.log(err)
-            }
-            console.log('Success')
-            BrowserWindow.getFocusedWindow().reload()
-        });
+        await merge(arg, path)
+        BrowserWindow.getFocusedWindow().reload()
     }
     else {
         BrowserWindow.getFocusedWindow().reload()
     }
 });
+
 
