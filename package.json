@@ -70,7 +70,6 @@
           "name": "@electron-forge/maker-squirrel",
           "config": {
             "name": "Fusion",
-            "iconUrl": "./Fusion.ico",
             "setupIcon": "./Fusion.ico"
           }
         },
