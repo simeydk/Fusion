@@ -6,6 +6,7 @@
   --dark-lo: rgb(34, 34, 39);
   --light-lo: rgba(255, 255, 255, 0.1);
   --card: rgb(36, 59, 124);
+  --black: #000;
 }
 
 @font-face {

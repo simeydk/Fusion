@@ -21,8 +21,8 @@ function FileUpload() {
             <input {...getInputProps()} className={FileUploadStyles.input} />
             {
                 isDragActive ?
-                    <p>Drop it like it's hot...</p> :
-                    <p>Drag and drop some files here, or click to select files</p>
+                    <p className={FileUploadStyles.dropIt}>Drop it like it's hot 🔥</p> :
+                    <p>Drag and drop some files here, or click to select the files you want to combine.</p>
             }
         </div>
     )

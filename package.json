@@ -1,5 +1,7 @@
 {
   "name": "fusion",
+  "description": "The PDF app.",
+  "author": "Ratul Maharaj",
   "version": "0.1.0",
   "main": "public/main.js",
   "homepage": "./",
@@ -67,7 +69,9 @@
         {
           "name": "@electron-forge/maker-squirrel",
           "config": {
-            "name": "fusion"
+            "name": "Fusion",
+            "iconUrl": "./Fusion.ico",
+            "setupIcon": "./Fusion.ico"
           }
         },
         {

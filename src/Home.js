@@ -5,7 +5,6 @@ import FileUpload from "./components/fileupload"
 function Home() {
     return (
         <>
-            <h3>Combine Multiple PDF files.</h3>
             <FileUpload />
         </>
     )

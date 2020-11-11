@@ -1,11 +1,15 @@
 .wrapper {
-    height: 300px;
-    width: 60%;
-    background-color: var(--light-lo);
+    height: calc(100vh - 1.15rem);
+    width: 100%;
+    background-color: none;
     border-radius: 3px;
     color: var(--white);
 }
 
 .wrapper>input:focus {
     outline: none !important;
+}
+
+.wrapper p{
+    font-size: larger;
 }

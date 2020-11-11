@@ -6,11 +6,13 @@ const isDev = require("electron-is-dev");
 function createWindow() {
     // Create the browser window.
     const win = new BrowserWindow({
-        width: 1080,
-        height: 650,
+        width: 900,
+        height: 600,
         frame: false,
         transparent: true,
         resizable: false,
+        opacity: 0.95,
+        icon: __dirname + "../Fusion.ico",
         webPreferences: {
             devTools: false,
             nodeIntegration: true,
@@ -74,11 +76,25 @@ ipcMain.on("minimize-window", (evt, arg) => {
 
 const merge = require('easy-pdf-merge');
 ipcMain.on("merge", (evt, arg) => {
-    merge(arg, '/Users/ratulmaharaj/Downloads/merged.pdf', function (err) {
-        if (err) {
-            return console.log(err)
+    const { dialog } = require('electron')
+    var path = dialog.showSaveDialogSync({ 
+        title: `Save combined file as:`,
+        buttonLabel: `Save`,
+        filters: [{
+            name: `pdf`,
+            extensions: [`pdf`]
         }
-        console.log('Success')
-    });
+        ],
+        message: `Save as:`,
+        properties: [`openFile`] 
+    })
+    if (path){
+        merge(arg, path, function (err) {
+            if (err) {
+                return console.log(err)
+            }
+            console.log('Success')
+        });
+    }
 });
 
