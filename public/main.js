@@ -77,7 +77,7 @@ ipcMain.on("minimize-window", (evt, arg) => {
 const merge = require('easy-pdf-merge');
 ipcMain.on("merge", (evt, arg) => {
     const { dialog } = require('electron')
-    var path = dialog.showSaveDialogSync({ 
+    var path = dialog.showSaveDialogSync({
         title: `Save combined file as:`,
         buttonLabel: `Save`,
         filters: [{
@@ -86,9 +86,9 @@ ipcMain.on("merge", (evt, arg) => {
         }
         ],
         message: `Save as:`,
-        properties: [`openFile`] 
+        properties: [`openFile`]
     })
-    if (path){
+    if (path) {
         merge(arg, path, function (err) {
             if (err) {
                 return console.log(err)
