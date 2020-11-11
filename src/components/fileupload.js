@@ -5,11 +5,17 @@ import { useDropzone } from 'react-dropzone'
 function FileUpload() {
 
     const onDrop = useCallback(acceptedFiles => {
-        console.log('Files dropped woohoo!')
         var paths = []
-        acceptedFiles.map(file =>
+
+        function sortByName(obj1, obj2) {
+            return obj1.name.localeCompare(obj2.name);
+        }
+        const sortedFiles = acceptedFiles.sort(sortByName)
+
+        sortedFiles.map(file =>
             paths.push(file.path)
         )
+
         const ipcRenderer = window.require("electron").ipcRenderer;
         ipcRenderer.send("merge", paths)
     }, [])
