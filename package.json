@@ -22,6 +22,7 @@
     "react-icons": "^3.11.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.0",
+    "update-electron-app": "^2.0.1",
     "web-vitals": "^0.2.4"
   },
   "scripts": {
@@ -35,6 +36,10 @@
     "electron": "wait-on tcp:3000 && electron-forge start",
     "package": "react-scripts build && electron-forge package",
     "make": "react-scripts build && electron-forge make"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/RatulMaharaj/Fusion.git"
   },
   "eslintConfig": {
     "extends": [
@@ -68,8 +73,20 @@
   "config": {
     "forge": {
       "packagerConfig": {
-        "asar": true
+        "asar": true,
+        "icon": "./Fusion.ico"
       },
+      "publishers": [
+        {
+          "name": "@electron-forge/publisher-github",
+          "config": {
+            "repository": {
+              "owner": "RatulMaharaj",
+              "name": "Fusion"
+            }
+          }
+        }
+      ],
       "makers": [
         {
           "name": "@electron-forge/maker-squirrel",
