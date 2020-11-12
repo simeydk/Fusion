@@ -6,11 +6,12 @@ import {
 } from "react-router-dom";
 import Titlebar from "./components/titlebar"
 import Home from "./Home"
+import AppCSS from "./app.module.css"
 
 export default function App() {
   return (
     <Router>
-      <>
+      <div className={AppCSS.app}>
         <Titlebar />
         <Switch>
           <Route path="/">
@@ -20,7 +21,7 @@ export default function App() {
             <About />
           </Route>
         </Switch>
-      </>
+      </div>
     </Router>
   );
 }
