@@ -32,7 +32,7 @@ jobs:
     - name: Archive built app
       uses: actions/upload-artifact@v2
       with:
-        name: Save exe file
+        name: Fusion windows installer
         path: out/make/squirrel.windows/x64/*.exe
   
   build_on_mac:
@@ -60,5 +60,5 @@ jobs:
     - name: Archive built app
       uses: actions/upload-artifact@v2
       with:
-        name: Save zip file
+        name: Fusion macos app
         path: out/make/zip/darwin/x64/*.zip
