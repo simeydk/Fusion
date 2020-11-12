@@ -13,11 +13,11 @@ function Titlebar() {
                 </p>
             </div>
             <div id="title-bar-btns" className={TitlebarStyles.btns}>
-                <div id="min-button" >
+                <div id="min-button" className={TitlebarStyles.btn}>
                     <VscChromeMinimize onClick={(e) => ipcRenderer.send("minimize-window")} />
                 </div>
-                <div id="close-button" onClick={(e) => ipcRenderer.send("close-window")}>
-                    <VscChromeClose />
+                <div id="close-button" className={TitlebarStyles.btn} >
+                    <VscChromeClose onClick={(e) => ipcRenderer.send("close-window")} />
                 </div>
             </div>
         </div>

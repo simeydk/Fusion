@@ -1,58 +1,58 @@
-:root {
-  --bg: rgba(12, 13, 19, 0.9);
-  --white: #fff;
-  --white-lo: rgba(255, 255, 255, 0.9);
-  --dark: rgb(17, 17, 19);
-  --dark-lo: rgb(34, 34, 39);
-  --light-lo: rgba(255, 255, 255, 0.1);
-  --card: rgb(36, 59, 124);
-  --black: #000;
-}
-
 @font-face {
-  font-family: 'Oxygen';
+  font-family: "Oxygen";
   font-style: normal;
   font-weight: 400;
-  src: url('./fonts/Oxygen-Regular.ttf');
+  src: url("./fonts/Oxygen-Regular.ttf");
 }
 
-body {
-  font-size: 14px;
-  margin: 0;
-  padding: 0;
-  font-family: 'Oxygen', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  background-image: none;
-  background-color: var(--bg);
-  color: var(--white);
-  overflow-x: hidden;
-  overflow-y: hidden;
-  min-height: 100vh;
+:root {
+    --bg: rgba(12, 13, 19, 0.9);
+    --white: #fff;
+    --white-lo: rgba(255, 255, 255, 0.9);
+    --dark: rgb(17, 17, 19);
+    --dark-lo: rgb(34, 34, 39);
+    --light-lo: rgba(255, 255, 255, 0.1);
+    --card: rgb(36, 59, 124);
+    --black: #000;
+
+    font-size: 14px;
 }
 
-div {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  white-space: nowrap;
-  flex-wrap: nowrap;
-}
-
-p {
-  margin: 0;
-  padding: inherit;
-  font-size: inherit;
-  font-family: inherit;
-}
-
-::-webkit-scrollbar {
-  display: none;
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Oxygen", -apple-system, BlinkMacSystemFont, "Segoe UI",
+        "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+        "Helvetica Neue", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 *:focus {
   outline: none;
   border: none;
 }
+
+
+/* div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    white-space: nowrap;
+    flex-wrap: nowrap;
+} */
+/* 
+p {
+    margin: 0;
+    padding: inherit;
+    font-size: inherit;
+    font-family: inherit;
+} */
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+

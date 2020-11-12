@@ -3,31 +3,34 @@
     -webkit-app-region: drag;
     height: 1.5rem;
     width: 100%;
-    background-color: var(--dark) !important;
-    padding: 0.125rem 0;
+    background-color: var(--dark);
+    color: var(--white);
     margin: 0;
-    flex-direction: row;
+    display: flex;
 }
 
 .title {
-    width: calc(100% - 100px);
-    padding-left: calc(100px / 2);
+    flex-grow: 1;
+    display:flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .btns {
-    width: 100px;
     -webkit-app-region: no-drag;
     flex-direction: row;
+    display:flex;
+    gap: 5px;
+    margin-right: 5px;
 }
 
-.btns div {
-    border: 0px solid transparent;
-    margin: 0 5px;
-    padding: 0.3rem;
-    background-color: var(--dark);
-    border-radius: 3px;
+.btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 0.3rem;
 }
 
-.btns div:hover {
-    background-color: var(--dark-lo) !important;
+.btn:hover {
+    background-color: var(--dark-lo);
 }
