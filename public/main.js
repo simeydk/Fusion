@@ -6,15 +6,14 @@ const { merge } = require("./merge");
 function createWindow() {
     // Create the browser window.
     const win = new BrowserWindow({
-        width: 900,
-        height: 600,
+        width: 600,
+        height: 400,
         frame: false,
         transparent: true,
-        resizable: false,
-        opacity: 0.95,
+        resizable: true,
         icon: path.join(__dirname, "../icons/Fusion.ico"),
         webPreferences: {
-            devTools: false,
+            devTools: isDev,
             nodeIntegration: true,
         }
     });
