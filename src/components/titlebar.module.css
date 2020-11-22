@@ -1,4 +1,6 @@
 .titleBar {
+    position: relative;
+    
     -webkit-user-select: none;
     -webkit-app-region: drag;
     height: 2rem;
@@ -17,6 +19,10 @@
 }
 
 .btns {
+    position: absolute;
+    top:0;
+    bottom:0;
+    right:0;
     -webkit-app-region: no-drag;
     flex-direction: row;
     display:flex;
