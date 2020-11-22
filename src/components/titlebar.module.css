@@ -9,6 +9,7 @@
     color: var(--white);
     margin: 0;
     display: flex;
+    background: linear-gradient(70deg, #34D399, #0891B2);
 }
 
 .title {
