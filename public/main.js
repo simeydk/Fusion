@@ -1,16 +1,16 @@
 const path = require("path");
-const { app, BrowserWindow } = require("electron");
+const { app, BrowserWindow, dialog } = require("electron");
 const isDev = require("electron-is-dev");
 const { merge } = require("./merge");
 
 function createWindow() {
     // Create the browser window.
     const win = new BrowserWindow({
-        width: 600,
-        height: 400,
+        // width: 600,
+        // height: 400,
         frame: false,
-        transparent: true,
-        resizable: true,
+        // transparent: true,
+        // resizable: true,
         icon: path.join(__dirname, "../icons/Fusion.ico"),
         webPreferences: {
             devTools: isDev,
@@ -99,4 +99,22 @@ ipcMain.on("merge", async (evt, arg) => {
     }
 });
 
+ipcMain.handle('getfile', async (event, args) => {
+    const result = await dialog.showSaveDialog(BrowserWindow, { filters: [{ name: 'PDF File', extensions: ['PDF'] }], defaultPath: args[0] || '' })
+    return result
+})
+
+ipcMain.handle('dirname',async (event, fullname) => { 
+    return path.dirname(fullname)
+})
+
+ipcMain.handle('merge', async (event, inputFiles, outputFile) => {
+    
+})
+
+// async function getFolderFromUser() {
+//     return dialog.showOpenDialog(BrowserWindow,{})
+// }
+
+// exports.getFolderFromUser = getFolderFromUser
 
