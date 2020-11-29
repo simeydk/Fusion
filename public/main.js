@@ -99,8 +99,8 @@ ipcMain.on("merge", async (evt, arg) => {
     }
 });
 
-ipcMain.handle('getfile', async (event, args) => {
-    const result = await dialog.showSaveDialog(BrowserWindow, { filters: [{ name: 'PDF File', extensions: ['PDF'] }], defaultPath: args[0] || '' })
+ipcMain.handle('showSaveDialog', async (event, options) => {
+    const result = await dialog.showSaveDialog(BrowserWindow, { filters: [{ name: 'PDF File', extensions: ['PDF'] }], options })
     return result
 })
 
@@ -109,12 +109,5 @@ ipcMain.handle('dirname',async (event, fullname) => {
 })
 
 ipcMain.handle('merge', async (event, inputFiles, outputFile) => {
-    
+    return await merge(inputFiles, outputFile)
 })
-
-// async function getFolderFromUser() {
-//     return dialog.showOpenDialog(BrowserWindow,{})
-// }
-
-// exports.getFolderFromUser = getFolderFromUser
-
