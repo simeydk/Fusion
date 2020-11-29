@@ -6,11 +6,11 @@ const { merge } = require("./merge");
 function createWindow() {
     // Create the browser window.
     const win = new BrowserWindow({
-        // width: 600,
-        // height: 400,
+        width: 480,
+        height: 640,
         frame: false,
-        // transparent: true,
-        // resizable: true,
+        transparent: true,
+        resizable: true,
         icon: path.join(__dirname, "../icons/Fusion.ico"),
         webPreferences: {
             devTools: isDev,
@@ -73,31 +73,6 @@ ipcMain.on("minimize-window", (evt, arg) => {
     BrowserWindow.getFocusedWindow().minimize();
 });
 
-
-ipcMain.on("merge", async (evt, arg) => {
-    const { dialog } = require('electron')
-    var path = dialog.showSaveDialogSync({
-        title: `Save combined file as:`,
-        defaultPath: `Merged.pdf`,
-        buttonLabel: `Save`,
-        filters: [{
-            name: `pdf`,
-            extensions: [`pdf`]
-        }
-        ],
-        message: `Save as:`,
-        properties: [`openFile`]
-    })
-    console.log({ arg, path })
-
-    if (path !== undefined) {
-        await merge(arg, path)
-        BrowserWindow.getFocusedWindow().reload()
-    }
-    else {
-        BrowserWindow.getFocusedWindow().reload()
-    }
-});
 
 ipcMain.handle('showSaveDialog', async (event, options) => {
     const result = await dialog.showSaveDialog(BrowserWindow, { filters: [{ name: 'PDF File', extensions: ['PDF'] }], options })

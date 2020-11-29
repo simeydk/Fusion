@@ -16,7 +16,6 @@ const CrossIcon = (props) => <svg {...props} xmlns="http://www.w3.org/2000/svg" 
 </svg>
 
 function FileUpload() {
-    const [message, setMessage] = useState('Drag and drop some files here, or click to select the pdfs you want to combine.')
     const [inputFiles, setInputFiles] = useState([]);
     const [outputFile, setOutputFile] = useState('');
 
@@ -29,7 +28,7 @@ function FileUpload() {
     }
 
     async function browseClick() {
-        const result = await ipcRenderer.invoke('getfile', outputFile)
+        const result = await ipcRenderer.invoke('showSaveDialog', outputFile)
         if (!result.cancelled) {
             setOutputFile(result.filePath)
         }
@@ -53,6 +52,8 @@ function FileUpload() {
 
     const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop, accept: 'application/pdf' })
 
+    const message = isDragActive ? `Drop it like it's hot 🔥` : `Drag and drop ${inputFiles.length > 0 ? 'more' : 'some'} PDFs here, or click to select the PDFs you want to combine.`
+
     return (
         <div className={styles.wrapper} >
             <div className={styles.input_area}>
@@ -69,7 +70,7 @@ function FileUpload() {
                         {inputFiles.map((x, i) => (
                             <li key={i + x.path} className={styles.file_item}>
                                 <span>{x.name}</span>
-                                <button className={styles.file_item_delete_button} onClick={() => removeInputFile(i)}><CrossIcon className={styles.file_item_delete_button}/></button>
+                                <button className={styles.file_item_delete_button} onClick={() => removeInputFile(i)}><CrossIcon className={styles.file_item_delete_button} /></button>
                             </li>
                         ))}
                     </ol>
@@ -77,11 +78,9 @@ function FileUpload() {
                         <input {...getInputProps()} className={styles.input} />
                         <div className={styles.drop_outer}>
                             <div className={styles.drop_inner}>
-                                {
-                                    isDragActive ?
-                                        <p className={styles.dropIt}>Drop it like it's hot 🔥</p> :
-                                        <p>{message}</p>
-                                }
+
+                                <p className={styles.dropIt}>{message}</p>
+
                             </div>
 
                         </div>
